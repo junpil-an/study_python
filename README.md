@@ -1,1 +1,1 @@
-[Python으로 ](./python_study)
+[Python으로 ](./study_python)
