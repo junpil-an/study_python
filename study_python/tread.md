@@ -19,3 +19,54 @@ t.start()
 print("Main Tread")
 
 ```
+
+```python
+import time
+
+#총 25초의 시간이 걸림
+
+#5초의 시간이 걸리는 함수
+def long_task():
+    #1초간 대기
+    time.sleep(1)
+    print(f"working:{i+1}")
+    
+
+print("start")
+
+#long_task를 5회 수행
+for i in range(5):
+    long_task()
+
+print("end")
+
+
+import time
+import threading
+
+def long_task():
+    #1초간 대기
+    time.sleep(1)
+    print(f"working:{i+1}")
+    
+print("start")
+threads=[]
+
+for i in range(5):
+    t = threading.Thread(target=long_task)
+    threads.append(t)
+
+for t in threads:
+    t.start()
+
+for t in threads:
+    t.join()
+
+print("end")
+'''
+threading.Thread를 사용하여 만든 스레드 객체가 동시작업을 가능하게 해줌
+
+
+'''
+
+```
